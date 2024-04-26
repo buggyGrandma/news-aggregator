@@ -11,7 +11,7 @@ const Filter = () => {
         } p-2 h-full bg-indigo-500 hover:bg-indigo-300`}
         onClick={() => setExpand(!isExpanded)}
       >
-        <CiFilter />
+        <CiFilter className="text-gray-200 text-xl" />
       </button>
       {isExpanded && (
         <>
