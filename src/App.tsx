@@ -1,8 +1,29 @@
+import Layout from "./Layout";
+
 function App() {
   return (
-    <>
-      <div className="text-blue-300">hello in blue</div>
-    </>
+    <Layout>
+      <div>heasdasdasds</div>
+      <div>heasdasdasds</div>
+      <div>heasdasdasds</div>
+      <div>heasdasdasds</div>
+      <div>heasdasdasds</div>
+      <div>heasdasdasds</div>
+      <div>heasdasdasds</div>
+      <div>heasdasdasds</div>
+      <div>heasdasdasds</div>
+      <div>heasdasdasds</div>
+      <div>heasdasdasds</div>
+      <div>heasdasdasds</div>
+      <div>heasdasdasds</div>
+      <div>heasdasdasds</div>
+      <div>heasdasdasds</div>
+      <div>heasdasdasds</div>
+      <div>heasdasdasds</div>
+      <div>heasdasdasds</div>
+      <div>heasdasdasds</div>
+      <div>heasdasdasds</div>
+    </Layout>
   );
 }
 
