@@ -16,7 +16,7 @@ const SearchInput = () => {
         onClick={() => setExpand(!isExpanded)}
         className={`bg-indigo-500 hover:bg-indigo-300 h-full ${
           isExpanded ? "rounded-r-full" : "rounded-full"
-        } bg-inherit px-4 py-2 flex justify-center items-center`}
+        }  px-4 py-2 flex justify-center items-center`}
       >
         <IoSearchOutline className="text-gray-200 text-xl" />
       </button>
