@@ -21,7 +21,7 @@ const Filter = () => {
           <button
             onClick={() => setExpand(false)}
             className={
-              "rounded-r-full text-justify  p-2 h-full bg-indigo-500 hover:bg-indigo-300"
+              "rounded-r-full text-justify text-gray-200 p-2 h-full bg-indigo-500 hover:bg-indigo-300"
             }
           >
             Ok

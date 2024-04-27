@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { CiUser } from "react-icons/ci";
 import { IoMdPaper } from "react-icons/io";
+import { MdOutlineDateRange } from "react-icons/md";
 const index = () => {
   const [isExpanded, setExpand] = useState(false);
   return (
@@ -49,6 +50,14 @@ const index = () => {
             <IoMdPaper className="text-gray-200 text-xl" />
           </div>
           <p className="text-sm">ReadWrite</p>
+        </div>
+        <div className="flex gap-2 items-center w-full">
+          <div className="rounded-full bg-gray-400 p-1">
+            <MdOutlineDateRange className="text-gray-200 text-xl" />
+          </div>
+          <p className="text-sm">
+            {new Date("2024-04-17T16:43:29Z").toLocaleString()}
+          </p>
         </div>
       </div>
     </div>
