@@ -1,40 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import { fetchNews } from "../lib/requests";
 import Card from "./Card";
+import CardSkeleton from "./Card/CardSkeleton";
 
-interface INewsApiResponse {
-  status: string;
-  totalResults: number;
-  articles: {
-    source: {
-      id: string;
-      name: string;
-    };
-    author: string;
-    title: string;
-    description: string;
-    url: string;
-    urlToImage: string;
-    publishedAt: string;
-    content: string;
-  }[];
-}
 const CardsContainer = () => {
-  const { data: news } = useQuery({
+  const { data: news, isLoading } = useQuery({
     queryKey: ["newsApiFeed"],
-    queryFn: () =>
-      axios
-        .get<INewsApiResponse>("https://newsapi.org/v2/everything", {
-          params: {
-            q: "bitcoin",
-            apiKey: "27464eba1c8a4976b633c07c3f063f91",
-          },
-        })
-        .then((res) => res.data),
+    queryFn: fetchNews,
   });
-
   return (
-    <div className="w-full h-full p-5 flex gap-5 flex-wrap ">
+    <div className="w-full h-full p-5 flex flex-wrap gap-3  ">
+      {isLoading && new Array(10).fill(0).map(() => <CardSkeleton />)}
       {news &&
         news.articles.map((item) => (
           <Card
