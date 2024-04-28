@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import SearchContext from "../lib/contexts/searchContext";
-import useNews from "../lib/hooks/useNews";
+import { useNews } from "../lib/hooks";
 import Card from "./Card";
 import CardSkeleton from "./Card/CardSkeleton";
 import FilterContext from "../lib/contexts/filterContext";
