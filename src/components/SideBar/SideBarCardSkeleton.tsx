@@ -13,8 +13,8 @@ const SideBarCardSkeleton = () => {
         </svg>
       </div>
       <div className="w-full flex-col">
-        <div className="h-3 bg-gray-400 rounded-full  w-full mb-4"></div>
-        <div className="h-3 bg-gray-400 rounded-full  w-3/4 mb-4"></div>
+        <div className="h-3 bg-gray-400 rounded-full  w-full mb-4" />
+        <div className="h-3 bg-gray-400 rounded-full  w-3/4 mb-4" />
       </div>
     </div>
   );

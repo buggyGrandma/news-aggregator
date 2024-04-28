@@ -13,6 +13,7 @@ function App() {
     to: "",
     category: "",
     source: "",
+    author: "",
   });
   return (
     <SearchContext.Provider value={{ value, dispatch }}>
