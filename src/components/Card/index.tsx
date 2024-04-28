@@ -26,7 +26,7 @@ const Card = ({
 }: Props) => {
   const [isExpanded, setExpand] = useState(false);
   return (
-    <div className="flex flex-col w-full h-fit max-w-72 rounded-lg bg-gray-200">
+    <div className="flex flex-col w-full h-fit gap-5 max-w-72 rounded-lg bg-gray-200">
       <img className="w-full h-auto rounded-t-lg" src={imageUrl} alt={title} />
       <div className="flex flex-col p-2 gap-2">
         <a

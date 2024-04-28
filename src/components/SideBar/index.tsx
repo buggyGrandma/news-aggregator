@@ -8,7 +8,7 @@ const SideBar = () => {
   const { filters } = useContext(FilterContext);
   const { data: headlines, isLoading } = useHeadLines(filters);
   return (
-    <div className="w-80 h-fit bg-gray-300 rounded-br-lg flex flex-col p-2 gap-2 items-center">
+    <div className="w-80 h-fit hidden bg-gray-300 rounded-br-lg md:flex flex-col p-2 gap-2 items-center">
       <h6 className="text-lg font-bold">Top Headlines:</h6>
       {isLoading &&
         new Array(10)

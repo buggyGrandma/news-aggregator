@@ -10,11 +10,9 @@ const Filter = () => {
   const [category, setCategory] = useState("");
   const [source, setSource] = useState("");
   return (
-    <div className="flex  items-center  gap-2 transition-transform ease-in-out duration-500 bg-gray-200 rounded-full  ">
+    <div className="flex flex-col md:flex-row items-center  gap-2 transition-transform ease-in-out duration-500 bg-gray-200 rounded-full  ">
       <button
-        className={` ${
-          isExpanded ? "rounded-l-full" : "rounded-full"
-        } p-2 h-full bg-indigo-500 hover:bg-indigo-300`}
+        className={` rounded-full p-2 h-full bg-indigo-500 hover:bg-indigo-300`}
         onClick={() => setExpand(!isExpanded)}
       >
         <CiFilter className="text-gray-200 text-xl" />
@@ -35,7 +33,7 @@ const Filter = () => {
               setExpand(false);
             }}
             className={
-              "rounded-r-full text-justify text-gray-200 p-2 h-full bg-indigo-500 hover:bg-indigo-300"
+              "rounded-full text-justify text-gray-200 p-2 h-full bg-indigo-500 hover:bg-indigo-300"
             }
           >
             Ok
