@@ -3,10 +3,12 @@ import SearchContext from "../lib/contexts/searchContext";
 import useNews from "../lib/hooks/useNews";
 import Card from "./Card";
 import CardSkeleton from "./Card/CardSkeleton";
+import FilterContext from "../lib/contexts/filterContext";
 
 const CardsContainer = () => {
   const { value } = useContext(SearchContext);
-  const { data: news, isLoading } = useNews(value);
+  const { filters } = useContext(FilterContext);
+  const { data: news, isLoading } = useNews(value, filters);
   return (
     <div className="w-full h-full p-5 flex justify-evenly flex-wrap gap-3  ">
       {isLoading &&

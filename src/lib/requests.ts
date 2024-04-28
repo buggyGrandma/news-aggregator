@@ -1,4 +1,5 @@
 import axios from "axios";
+import { IFilters } from "./reducers/filterReducer";
 
 interface INewsApiResponse {
   status: string;
@@ -18,12 +19,15 @@ interface INewsApiResponse {
   }[];
 }
 
-export const fetchNews = (q: string) =>
+export const fetchNews = (q: string, filters: IFilters) =>
   axios
     .get<INewsApiResponse>("https://newsapi.org/v2/everything", {
       params: {
         q,
-        apiKey: "27464eba1c8a4976b633c07c3f063f91",
+        apiKey: "dd0582dc79464791a38f7286da35ba64",
+        from: filters.from,
+        to: filters.to,
+        sources: filters.source,
       },
     })
     .then((res) => res.data);

@@ -1,4 +1,4 @@
-const searchReducer = (state: string, action: string): string => {
+const searchReducer = (_state: string, action: string): string => {
   return action;
 };
 
