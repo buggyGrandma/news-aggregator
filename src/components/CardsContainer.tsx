@@ -12,19 +12,21 @@ const CardsContainer = () => {
       {isLoading &&
         new Array(10).fill(0).map((_, i) => <CardSkeleton key={i} />)}
       {news &&
-        news.articles.map((item, i) => (
-          <Card
-            key={i}
-            author={item.author}
-            content={item.content}
-            date={item.publishedAt}
-            description={item.description}
-            imageUrl={item.urlToImage}
-            source={item.source.name}
-            title={item.title}
-            url={item.url}
-          />
-        ))}
+        news.articles
+          .filter((item) => item.title !== "[Removed]")
+          .map((item, i) => (
+            <Card
+              key={i}
+              author={item.author}
+              content={item.content}
+              date={item.publishedAt}
+              description={item.description}
+              imageUrl={item.urlToImage}
+              source={item.source.name}
+              title={item.title}
+              url={item.url}
+            />
+          ))}
     </div>
   );
 };
