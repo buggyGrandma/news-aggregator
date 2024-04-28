@@ -3,6 +3,7 @@ export interface IFilters {
   to: string;
   category: string;
   source: string;
+  author: string;
 }
 
 const filterReducer = (_state: IFilters, action: IFilters): IFilters => {

@@ -4,7 +4,7 @@ import FilterContext from "../../lib/contexts/filterContext";
 
 const Filter = () => {
   const [isExpanded, setExpand] = useState(false);
-  const { FilterDispatch } = useContext(FilterContext);
+  const { filters, FilterDispatch } = useContext(FilterContext);
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [category, setCategory] = useState("");
@@ -25,7 +25,7 @@ const Filter = () => {
           <FilterItem OnChange={setSource} title="source" />
           <button
             onClick={() => {
-              FilterDispatch({ category, source, from, to });
+              FilterDispatch({ ...filters, category, source, from, to });
               setCategory("");
               setSource("");
               setFrom("");

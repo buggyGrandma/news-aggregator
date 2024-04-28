@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { CiUser } from "react-icons/ci";
+import FilterContext from "../../lib/contexts/filterContext";
 
 const Profile = () => {
   const [isExpanded, setExpand] = useState(false);
@@ -18,17 +19,19 @@ const Profile = () => {
           onClick={() => setExpand(false)}
           className="absolute z-10 w-screen h-screen bg-black bg-opacity-30 top-0 left-0"
         >
-          <Modal />
+          <Modal setClose={setExpand} />
         </div>
       )}
     </>
   );
 };
 
-const Modal = () => {
-  const [sources, setSources] = useState("");
+const Modal = ({ setClose }: { setClose: (e: boolean) => void }) => {
+  const [source, setSource] = useState("");
   const [category, setCategory] = useState("");
   const [author, setAuthor] = useState("");
+  const { filters, FilterDispatch } = useContext(FilterContext);
+
   return (
     <div
       onClick={(e) => e.stopPropagation()}
@@ -37,11 +40,20 @@ const Modal = () => {
       <p className="text-lg font-bold text-indigo-500">Alireza Khosravanifar</p>
       <div className="flex flex-col gap-2 items-start w-full ">
         <p className="text-bold">Preferences:</p>
-        <Input title="sources" OnChange={setSources} />
+        <Input title="sources" OnChange={setSource} />
         <Input title="category" OnChange={setCategory} />
         <Input title="author" OnChange={setAuthor} />
       </div>
-      <button className=" rounded-full bg-indigo-500 py-2 px-10 text-gray-200">
+      <button
+        onClick={() => {
+          FilterDispatch({ ...filters, category, source, author });
+          setCategory("");
+          setSource("");
+          setAuthor("");
+          setClose(false);
+        }}
+        className=" rounded-full bg-indigo-500 py-2 px-10 text-gray-200"
+      >
         Submit
       </button>
     </div>

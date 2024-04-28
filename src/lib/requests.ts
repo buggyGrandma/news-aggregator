@@ -28,6 +28,7 @@ export const fetchNews = (q: string, filters: IFilters) =>
         from: filters.from,
         to: filters.to,
         sources: filters.source,
+        author: filters.author,
       },
     })
     .then((res) => res.data);
@@ -41,6 +42,7 @@ export const fetchHeadlines = (filters: IFilters) =>
         from: filters.from,
         to: filters.to,
         sources: filters.source,
+        author: filters.author,
       },
     })
     .then((res) => res.data);
