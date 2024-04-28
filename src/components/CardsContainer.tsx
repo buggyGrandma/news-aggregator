@@ -1,20 +1,20 @@
-import { useQuery } from "@tanstack/react-query";
-import { fetchNews } from "../lib/requests";
+import { useContext } from "react";
+import SearchContext from "../lib/contexts/searchContext";
+import useNews from "../lib/hooks/useNews";
 import Card from "./Card";
 import CardSkeleton from "./Card/CardSkeleton";
 
 const CardsContainer = () => {
-  const { data: news, isLoading } = useQuery({
-    queryKey: ["newsApiFeed"],
-    queryFn: fetchNews,
-  });
+  const { value } = useContext(SearchContext);
+  const { data: news, isLoading } = useNews(value);
   return (
-    <div className="w-full h-full p-5 flex flex-wrap gap-3  ">
-      {isLoading && new Array(10).fill(0).map(() => <CardSkeleton />)}
+    <div className="w-full h-full p-5 flex justify-evenly flex-wrap gap-3  ">
+      {isLoading &&
+        new Array(10).fill(0).map((_, i) => <CardSkeleton key={i} />)}
       {news &&
-        news.articles.map((item) => (
+        news.articles.map((item, i) => (
           <Card
-            key={item.url}
+            key={i}
             author={item.author}
             content={item.content}
             date={item.publishedAt}

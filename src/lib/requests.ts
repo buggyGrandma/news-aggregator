@@ -18,11 +18,11 @@ interface INewsApiResponse {
   }[];
 }
 
-export const fetchNews = () =>
+export const fetchNews = (q: string) =>
   axios
     .get<INewsApiResponse>("https://newsapi.org/v2/everything", {
       params: {
-        q: "bitcoin",
+        q,
         apiKey: "27464eba1c8a4976b633c07c3f063f91",
       },
     })
