@@ -1,6 +1,6 @@
 import axios from "axios";
 import { IFilters } from "./reducers/filterReducer";
-
+const apiKey = "48204b5592544931980e90d8b65daf6d";
 interface INewsApiResponse {
   status: string;
   totalResults: number;
@@ -24,7 +24,7 @@ export const fetchNews = (q: string, filters: IFilters) =>
     .get<INewsApiResponse>("https://newsapi.org/v2/everything", {
       params: {
         q,
-        apiKey: "dd0582dc79464791a38f7286da35ba64",
+        apiKey,
         from: filters.from,
         to: filters.to,
         sources: filters.source,
@@ -37,7 +37,7 @@ export const fetchHeadlines = (filters: IFilters) =>
   axios
     .get<INewsApiResponse>("https://newsapi.org/v2/top-headlines", {
       params: {
-        apiKey: "dd0582dc79464791a38f7286da35ba64",
+        apiKey,
         country: "us",
         from: filters.from,
         to: filters.to,
